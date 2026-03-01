@@ -1,7 +1,8 @@
 import * as z from "zod";
 import { createDeepAgent } from "deepagents";
 import { tool } from "langchain";
-import { ChatOpenAI } from "@langchain/openai"; // Import the OpenAI wrapper
+// import { ChatOpenAI } from "@langchain/openai"; // Import the OpenAI wrapper
+import { ChatGoogleGenerativeAI } from "@langchain/google-genai"
 import { config } from "dotenv";
 
 // Loading the .env variables
@@ -10,16 +11,22 @@ config()
 
 
 // 1. Define your local model configuration
-const localModel = new ChatOpenAI({
-  // Point to LM Studio's local server
-  configuration: {
-    baseURL: process.env.MODEL_API_URL,
-  },
-  // The actual model name in LM Studio (usually doesn't matter, but it's good practice)
-  modelName: process.env.MODEL_NAME, 
-  apiKey: process.env.MODEL_API_KEY, // LM Studio doesn't require a real key, but LangChain needs a string
-  temperature: 0,
+const localModel = new ChatGoogleGenerativeAI({
+  model: process.env.MODEL_NAME,
+  apiKey: process.env.MODEL_API_KEY,
+  temperature:0,
+  maxRetries:2
 });
+// const localModel = new ChatOpenAI({
+//   // Point to LM Studio's local server
+//   configuration: {
+//     baseURL: process.env.MODEL_API_URL,
+//   },
+//   // The actual model name in LM Studio (usually doesn't matter, but it's good practice)
+//   modelName: process.env.MODEL_NAME, 
+//   apiKey: process.env.MODEL_API_KEY, // LM Studio doesn't require a real key, but LangChain needs a string
+//   temperature: 0,
+// });
 
 const getWeather = tool(
   ({ city }) => `It's always sunny in ${city}!`,
