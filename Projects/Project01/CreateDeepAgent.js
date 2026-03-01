@@ -3,11 +3,14 @@ import { createDeepAgent } from "deepagents";
 import { tool } from "langchain";
 // import { ChatOpenAI } from "@langchain/openai"; // Import the OpenAI wrapper
 import { ChatGoogleGenerativeAI } from "@langchain/google-genai"
-import { config } from "dotenv";
-
-// Loading the .env variables
-config()
-
+import { config } from "@dotenvx/dotenvx";
+// Loading the .env variables using dotenvx
+//usage [https://dotenvx.com/docs/advanced]
+config({
+  path:[".env.development.local"],
+  envKeysFile:".env.keys",
+  strict:true
+});
 
 
 // 1. Define your local model configuration
