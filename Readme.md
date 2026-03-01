@@ -24,7 +24,7 @@ Projects/Project01
    1) CreateDeepAgents.js : this is the starting example on how to use the deep agent.
    
     1) Reading a env varibles from .env files
-    2) creating a open ai client -> model instance
+    2) creating a Google client -> model instance
     3) adding tools 
     4) creating an deep agent
     5) calling the deep agent with some input user parameters.
@@ -52,6 +52,6 @@ Use the **DeepAgents CLI** when you want to use an interactive deep agent on the
 ------------------
 # Core Capabilities
 ## 1) Planning and task decomposition
-   Deep agents include build in write-Todos that enables agents to breakdown complex tasks into discrete steps,track progress and adapt plans as new information emerges.
+   Deep agents include build in **write-Todos** that enables agents to breakdown complex tasks into discrete steps,track progress and adapt plans as new information emerges.
 ## 2) context management
    File system tools(ls,read_file,write_file,edit_file) allow agents to offload large context into in-memory or filesystem storage,preventing context window overflow and enabling work with variable length tool results.
