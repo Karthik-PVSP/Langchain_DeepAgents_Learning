@@ -1,0 +1,28 @@
+{
+  "name": "exploring_1",
+  "version": "1.0.0",
+  "description": "Deep agents overview.\r Build agents\r that can\r 1) plan \r 2) use subagents\r 3) leverage file system for complex tasks and context management & long term memory\r use cases\r 1) we can use the deep agents for complex tasks such as the multi step tasks.",
+  "main": "DeepAgents_tutorial_1.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Karthik-PVSP/Langchain_DeepAgents_Learning.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Karthik-PVSP/Langchain_DeepAgents_Learning/issues"
+  },
+  "homepage": "https://github.com/Karthik-PVSP/Langchain_DeepAgents_Learning#readme",
+  "dependencies": {
+    "@langchain/core": "^1.1.29",
+    "@langchain/openai": "^1.2.11",
+    "deepagents": "^1.8.1",
+    "dotenv": "^17.3.1",
+    "langchain": "^1.2.28"
+  }
+}
