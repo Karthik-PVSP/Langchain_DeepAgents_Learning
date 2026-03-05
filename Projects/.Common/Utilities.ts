@@ -1,6 +1,9 @@
+import { config } from "@dotenvx/dotenvx";
+import { ChatGoogleGenerativeAI } from "@langchain/google-genai";
 import { TavilySearch } from "@langchain/tavily";
 import { tool } from "langchain";
 import { z } from "zod";
+
 export const internetSearch = tool(
   async ({
     query,
@@ -44,3 +47,19 @@ export const internetSearch = tool(
     }),
   },
 );
+
+export const LoadConfig_And_Model = () => {
+  config({
+    path: [".env.development.local"],
+    envKeysFile: ".env.keys",
+    strict: true
+  });
+  return new ChatGoogleGenerativeAI({
+    model: process.env.MODEL_NAME || "gemini-pro",
+    apiKey: process.env.MODEL_API_KEY || "",
+    temperature: 0,
+    maxRetries: 2
+  });
+
+
+}

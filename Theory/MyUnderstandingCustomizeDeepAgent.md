@@ -70,3 +70,14 @@ Def: it provides a way to more tightly control what happens inside the agent. Mi
 
 You can provide additional middleware to extend functinality, add tools, or implement custom hooks.
 
+----
+## Backends
+
+Deep agent tools can make use of `virtual file system` to store access and edit files 
+By default deep agents use the StateBackend.
+
+if you are using <u>Skills</u> or <u>Memory</u> you must added expected skill or memory files to the backend before creating the agent.
+
+The file system that is shortlived and present inside the langgraph state and persist on the single thread.
+
+Choose and configure file system backends for deep agents, you can specify routes to different backends 

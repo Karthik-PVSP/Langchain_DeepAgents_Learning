@@ -4,7 +4,7 @@ import { tool, createMiddleware } from "langchain";
 // import { ChatOpenAI } from "@langchain/openai"; // Import the OpenAI wrapper
 import { ChatGoogleGenerativeAI } from "@langchain/google-genai"
 import { config } from "@dotenvx/dotenvx";
-import { internetSearch } from "./Utilities";
+import { internetSearch } from "../.Common/Utilities";
 // Loading the .env variables using dotenvx
 //usage [https://dotenvx.com/docs/advanced]
 config({

@@ -21,7 +21,7 @@ const GoogleGemini2_Model = new ChatGoogleGenerativeAI({
 
 
 
-import { internetSearch } from "./Utilities";
+import { internetSearch } from "../.Common/Utilities";
 
 
 
