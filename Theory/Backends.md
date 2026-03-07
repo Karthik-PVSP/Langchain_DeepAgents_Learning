@@ -18,3 +18,6 @@
 
     5) CompositeBackend:
     A flexible backend where you can specify different routes in the filesystem to point towards different backends.
+    6) SandboxBackend:
+        Sandboxes are specialized backends that run agent code in an isolated environment with their own filesystem and an execute tool for shell commands. Use a sandbox backend when you want your deep agent to write files, install dependencies, and run commands without changing anything on your local machine.
+    

@@ -3,11 +3,11 @@
 
 import { createDeepAgent, FilesystemBackend, LocalShellBackend, StateBackend } from "deepagents";
 import { ChatGoogleGenerativeAI } from "@langchain/google-genai";
-import { LoadConfig_And_Model } from "../.Common/Utilities";
+import { LoadConfig_And_Model, ModelProvider } from "../.Common/Utilities";
 
 /* AN ephemeral filesystem backend stored in langgraph state.
 This filesystem only persists for a single thread.*/
-const model: ChatGoogleGenerativeAI = LoadConfig_And_Model();
+const model = LoadConfig_And_Model(ModelProvider.GOOGLE);
 const stateBackendAgent = createDeepAgent({
     model,
     backend: (state) => new StateBackend(state)

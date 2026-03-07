@@ -1,0 +1,302 @@
+{
+  messages: [
+    HumanMessage {
+      "id": "fe276068-6a4e-4ce7-b4af-8e73f6694949",
+      "content": "what is langraph? Use the langgraph-docs skill if available.",
+      "additional_kwargs": {},
+      "response_metadata": {}
+    },
+    AIMessage {
+      "id": "chatcmpl-DGsYHiboJsNlW93C9GCAPB1idq5xz",
+      "content": "",
+      "name": "model",
+      "additional_kwargs": {
+        "tool_calls": [
+          {
+            "id": "call_SX6i30aM2mOgTFRL6SaGAZrc",
+            "type": "function",
+            "function": "[Object]"
+          }
+        ]
+      },
+      "response_metadata": {
+        "tokenUsage": {
+          "promptTokens": 6482,
+          "completionTokens": 105,
+          "totalTokens": 6587
+        },
+        "finish_reason": "tool_calls",
+        "model_provider": "openai",
+        "model_name": "gpt-5-mini-2025-08-07"
+      },
+      "tool_calls": [
+        {
+          "name": "read_file",
+          "args": {
+            "file_path": "/skills/langgraph-docs/SKILL.md",
+            "offset": 0,
+            "limit": 400
+          },
+          "type": "tool_call",
+          "id": "call_SX6i30aM2mOgTFRL6SaGAZrc"
+        }
+      ],
+      "invalid_tool_calls": [],
+      "usage_metadata": {
+        "output_tokens": 105,
+        "input_tokens": 6482,
+        "total_tokens": 6587,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 5760
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 64
+        }
+      }
+    },
+    ToolMessage {
+      "id": "8e2bdd9d-7d6f-44f4-a558-db8145afa7ee",
+      "content": "     1\t---\n     2\tname: langgraph-docs\n     3\tdescription: Use this skill for requests related to LangGraph in order to fetch relevant documentation to provide accurate, up-to-date guidance.\n     4\t---\n     5\t\n     6\t# langgraph-docs\n     7\t\n     8\t## Overview\n     9\t\n    10\tThis skill explains how to access LangGraph Python documentation to help answer questions and guide implementation.\n    11\t\n    12\t## Instructions\n    13\t\n    14\t### 1. Fetch the Documentation Index\n    15\t\n    16\tUse the fetch_url tool to read the following URL:\n    17\thttps://docs.langchain.com/llms.txt\n    18\t\n    19\tThis provides a structured list of all available documentation with descriptions.\n    20\t\n    21\t### 2. Select Relevant Documentation\n    22\t\n    23\tBased on the question, identify 2-4 most relevant documentation URLs from the index. Prioritize:\n    24\t\n    25\t- Specific how-to guides for implementation questions\n    26\t- Core concept pages for understanding questions\n    27\t- Tutorials for end-to-end examples\n    28\t- Reference docs for API details\n    29\t\n    30\t### 3. Fetch Selected Documentation\n    31\t\n    32\tUse the fetch_url tool to read the selected documentation URLs.\n    33\t\n    34\t### 4. Provide Accurate Guidance\n    35\t\n    36\tAfter reading the documentation, complete the users request.\n    37\t",
+      "name": "read_file",
+      "additional_kwargs": {},
+      "response_metadata": {},
+      "tool_call_id": "call_SX6i30aM2mOgTFRL6SaGAZrc"
+    },
+    AIMessage {
+      "id": "chatcmpl-DGsYK3GxE8Unz13jyKIPN3LiLpaPr",
+      "content": "",
+      "name": "model",
+      "additional_kwargs": {
+        "tool_calls": [
+          {
+            "id": "call_tH0D6yOnqRCFwjUFq5ZSA2J6",
+            "type": "function",
+            "function": "[Object]"
+          }
+        ]
+      },
+      "response_metadata": {
+        "tokenUsage": {
+          "promptTokens": 6880,
+          "completionTokens": 96,
+          "totalTokens": 6976
+        },
+        "finish_reason": "tool_calls",
+        "model_provider": "openai",
+        "model_name": "gpt-5-mini-2025-08-07"
+      },
+      "tool_calls": [
+        {
+          "name": "fetch_url",
+          "args": {
+            "url": "https://docs.langchain.com/llms.txt"
+          },
+          "type": "tool_call",
+          "id": "call_tH0D6yOnqRCFwjUFq5ZSA2J6"
+        }
+      ],
+      "invalid_tool_calls": [],
+      "usage_metadata": {
+        "output_tokens": 96,
+        "input_tokens": 6880,
+        "total_tokens": 6976,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 6400
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 64
+        }
+      }
+    },
+    ToolMessage {
+      "id": "a32bfdbe-25ac-44cc-9ff9-111b7395c4c0",
+      "content": "Tool result too large, the result of this tool call call_tH0D6yOnqRCFwjUFq5ZSA2J6 was saved in the filesystem at this path: /large_tool_results/call_tH0D6yOnqRCFwjUFq5ZSA2J6\nYou can read the result from the filesystem by using the read_file tool, but make sure to only read part of the result at a time.\nYou can do this by specifying an offset and limit in the read_file tool call.\nFor example, to read the first 100 lines, you can use the read_file tool with offset=0 and limit=100.\n\nHere is 
+a preview showing the head and tail of the result (lines of the form\n... [N lines truncated] ...\nindicate omitted lines in the 
+middle of the content):\n\n     1\t# Docs by LangChain\n     2\t\n     3\t## Docs\n     4\t\n     5\t- [Authenticate](https://docs.langchain.com/api-reference/auth-service-v2/authenticate.md): Get OAuth token or start authentication flow if needed.\n... [892 lines truncated] ...\n   898\t## OpenAPI Specs\n   899\t\n   900\t- [openapi](https://api.host.langchain.com/openapi.json)\n   901\t- [agent-server-openapi](https://docs.langchain.com/langsmith/agent-server-openapi.json)\n   902\t",
+      "name": "fetch_url",
+      "additional_kwargs": {},
+      "response_metadata": {},
+      "tool_call_id": "call_tH0D6yOnqRCFwjUFq5ZSA2J6"
+    },
+    AIMessage {
+      "id": "chatcmpl-DGsYN2PfE0jkowfttYo4cvkFR7pCA",
+      "content": "",
+      "name": "model",
+      "additional_kwargs": {
+        "tool_calls": [
+          {
+            "id": "call_QikA3Wmsodt9cUVkOXUBYEur",
+            "type": "function",
+            "function": "[Object]"
+          }
+        ]
+      },
+      "response_metadata": {
+        "tokenUsage": {
+          "promptTokens": 7222,
+          "completionTokens": 156,
+          "totalTokens": 7378
+        },
+        "finish_reason": "tool_calls",
+        "model_provider": "openai",
+        "model_name": "gpt-5-mini-2025-08-07"
+      },
+      "tool_calls": [
+        {
+          "name": "grep",
+          "args": {
+            "pattern": "langgraph",
+            "path": "/"
+          },
+          "type": "tool_call",
+          "id": "call_QikA3Wmsodt9cUVkOXUBYEur"
+        }
+      ],
+      "invalid_tool_calls": [],
+      "usage_metadata": {
+        "output_tokens": 156,
+        "input_tokens": 7222,
+        "total_tokens": 7378,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 6784
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 128
+        }
+      }
+    },
+    ToolMessage {
+      "id": "7608cdbb-6fea-4eab-b4c1-fe2a9e90de18",
+      "content": "\n/skills/langgraph-docs/SKILL.md:\n  2: name: langgraph-docs\n  6: # langgraph-docs\n\n/large_tool_results/call_tH0D6yOnqRCFwjUFq5ZSA2J6:\n  431: - [LangGraph JS/TS SDK](https://docs.langchain.com/langsmith/langgraph-js-ts-sdk.md)\n  432: 
+- [LangGraph Python SDK](https://docs.langchain.com/langsmith/langgraph-python-sdk.md)\n  581: - [Trace LangGraph applications](https://docs.langchain.com/langsmith/trace-with-langgraph.md)\n  716: - [Memory](https://docs.langchain.com/oss/javascript/langgraph/add-memory.md)\n  717: - [Build a custom RAG agent with LangGraph](https://docs.langchain.com/oss/javascript/langgraph/agentic-rag.md)\n  718: - [Application structure](https://docs.langchain.com/oss/javascript/langgraph/application-structure.md)\n  719: 
+- [Case studies](https://docs.langchain.com/oss/javascript/langgraph/case-studies.md)\n  720: - [Changelog](https://docs.langchain.com/oss/javascript/langgraph/changelog-js.md)\n  721: - [Choosing between Graph and Functional APIs](https://docs.langchain.com/oss/javascript/langgraph/choosing-apis.md)\n  722: - [LangSmith Deployment](https://docs.langchain.com/oss/javascript/langgraph/deploy.md)\n  723: - [Durable execution](https://docs.langchain.com/oss/javascript/langgraph/durable-execution.md)\n  724: - [Functional API overview](https://docs.langchain.com/oss/javascript/langgraph/functional-api.md)\n  725: - [Graph API overview](https://docs.langchain.com/oss/javascript/langgraph/graph-api.md)\n  726: - [Install LangGraph](https://docs.langchain.com/oss/javascript/langgraph/install.md)\n  727: - [Interrupts](https://docs.langchain.com/oss/javascript/langgraph/interrupts.md)\n  728: - [Run a local server](https://docs.langchain.com/oss/javascript/langgraph/local-server.md)\n  729: - [LangSmith Observability](https://docs.langchain.com/oss/javascript/langgraph/observability.md)\n  730: - [LangGraph overview](https://docs.langchain.com/oss/javascript/langgraph/overview.md): Gain control with LangGraph to design agents that reliably handle complex tasks\n  731: - [Persistence](https://docs.langchain.com/oss/javascript/langgraph/persistence.md)\n  732: - [LangGraph runtime](https://docs.langchain.com/oss/javascript/langgraph/pregel.md)\n  733: - [Quickstart](https://docs.langchain.com/oss/javascript/langgraph/quickstart.md)\n  734: - [Streaming](https://docs.langchain.com/oss/javascript/langgraph/streaming.md)\n  735: - [LangSmith Studio](https://docs.langchain.com/oss/javascript/langgraph/studio.md)\n  736: - [Test](https://docs.langchain.com/oss/javascript/langgraph/test.md)\n  737: - [Thinking in LangGraph](https://docs.langchain.com/oss/javascript/langgraph/thinking-in-langgraph.md): Learn how to think about building agents with LangGraph\n  738: - [Agent Chat UI](https://docs.langchain.com/oss/javascript/langgraph/ui.md)\n  739: - [Use the functional API](https://docs.langchain.com/oss/javascript/langgraph/use-functional-api.md)\n  740: - [Use the graph API](https://docs.langchain.com/oss/javascript/langgraph/use-graph-api.md)\n  741: - [Subgraphs](https://docs.langchain.com/oss/javascript/langgraph/use-subgraphs.md)\n  742: - [Use time-travel](https://docs.langchain.com/oss/javascript/langgraph/use-time-travel.md)\n  743: - [Workflows and agents](https://docs.langchain.com/oss/javascript/langgraph/workflows-agents.md)\n  746: - [LangGraph v1 migration guide](https://docs.langchain.com/oss/javascript/migrate/langgraph-v1.md)\n  749: - [LangGraph SDK](https://docs.langchain.com/oss/javascript/reference/langgraph-javascript.md)\n  754: - [What's new in LangGraph v1](https://docs.langchain.com/oss/javascript/releases/langgraph-v1.md)\n  854: - [Memory](https://docs.langchain.com/oss/python/langgraph/add-memory.md)\n  855: - [Build a custom RAG agent with LangGraph](https://docs.langchain.com/oss/python/langgraph/agentic-rag.md)\n  856: - [Application structure](https://docs.langchain.com/oss/python/langgraph/application-structure.md)\n  857: - [Case studies](https://docs.langchain.com/oss/python/langgraph/case-studies.md)\n  858: - [Changelog](https://docs.langchain.com/oss/python/langgraph/changelog-py.md)\n  859: - [Choosing between Graph and Functional APIs](https://docs.langchain.com/oss/python/langgraph/choosing-apis.md)\n  860: - [LangSmith Deployment](https://docs.langchain.com/oss/python/langgraph/deploy.md)\n  861: - [Durable execution](https://docs.langchain.com/oss/python/langgraph/durable-execution.md)\n  862: - [Functional API overview](https://docs.langchain.com/oss/python/langgraph/functional-api.md)\n  863: - [Graph API overview](https://docs.langchain.com/oss/python/langgraph/graph-api.md)\n  864: - [Install LangGraph](https://docs.langchain.com/oss/python/langgraph/install.md)\n  865: - [Interrupts](https://docs.langchain.com/oss/python/langgraph/interrupts.md)\n  866: - [Run a local server](https://docs.langchain.com/oss/python/langgraph/local-server.md)\n  867: - [LangSmith Observability](https://docs.langchain.com/oss/python/langgraph/observability.md)\n  868: - [LangGraph overview](https://docs.langchain.com/oss/python/langgraph/overview.md): Gain control with LangGraph to design agents that reliably handle complex tasks\n  869: - [Persistence](https://docs.langchain.com/oss/python/langgraph/persistence.md)\n 
+ 870: - [LangGraph runtime](https://docs.langchain.com/oss/python/langgraph/pregel.md)\n  871: - [Quickstart](https://docs.langchain.com/oss/python/langgraph/quickstart.md)\n  872: - [Build a custom SQL agent](https://docs.langchain.com/oss/python/langgraph/sql-agent.md)\n  873: - [Streaming](https://docs.langchain.com/oss/python/langgraph/streaming.md)\n  874: - [LangSmith Studio](https://docs.langchain.com/oss/python/langgraph/studio.md)\n  875: - [Test](https://docs.langchain.com/oss/python/langgraph/test.md)\n  876: - [Thinking in LangGraph](https://docs.langchain.com/oss/python/langgraph/thinking-in-langgraph.md): Learn how to think about building agents with LangGraph\n  877: - [Agent Chat UI](https://docs.langchain.com/oss/python/langgraph/ui.md)\n  878: - 
+[Use the functional API](https://docs.langchain.com/oss/python/langgraph/use-functional-api.md)\n  879: - [Use the graph API](https://docs.langchain.com/oss/python/langgraph/use-graph-api.md)\n  880: - [Subgraphs](https://docs.langchain.com/oss/python/langgraph/use-subgraphs.md)\n  881: - [Use time-travel](https://docs.langchain.com/oss/python/langgraph/use-time-travel.md)\n  882: - [Workflows and agents](https://docs.langchain.com/oss/python/langgraph/workflows-agents.md)\n  885: - [LangGraph v1 migration guide](https://docs.langchain.com/oss/python/migrate/langgraph-v1.md)\n  889: - [LangGraph SDK](https://docs.langchain.com/oss/python/reference/langgraph-python.md)\n  894: - [What's new in LangGraph v1](https://docs.langchain.com/oss/python/releases/langgraph-v1.md)",
+      "name": "grep",
+      "additional_kwargs": {},
+      "response_metadata": {},
+      "tool_call_id": "call_QikA3Wmsodt9cUVkOXUBYEur"
+    },
+    AIMessage {
+      "id": "chatcmpl-DGsYQVtWru2eCf3a1kMAP5JyEH3LC",
+      "content": "",
+      "name": "model",
+      "additional_kwargs": {
+        "tool_calls": [
+          {
+            "id": "call_AybpCE0giRiCCSEdHyThr6CI",
+            "type": "function",
+            "function": "[Object]"
+          }
+        ]
+      },
+      "response_metadata": {
+        "tokenUsage": {
+          "promptTokens": 9098,
+          "completionTokens": 164,
+          "totalTokens": 9262
+        },
+        "finish_reason": "tool_calls",
+        "model_provider": "openai",
+        "model_name": "gpt-5-mini-2025-08-07"
+      },
+      "tool_calls": [
+        {
+          "name": "fetch_url",
+          "args": {
+            "url": "https://docs.langchain.com/oss/python/langgraph/overview.md"
+          },
+          "type": "tool_call",
+          "id": "call_AybpCE0giRiCCSEdHyThr6CI"
+        }
+      ],
+      "invalid_tool_calls": [],
+      "usage_metadata": {
+        "output_tokens": 164,
+        "input_tokens": 9098,
+        "total_tokens": 9262,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 6784
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 128
+        }
+      }
+    },
+    ToolMessage {
+      "id": "aa13d6c1-e955-4874-9691-8147e882b132",
+      "content": "> ## Documentation Index\n> Fetch the complete documentation index at: https://docs.langchain.com/llms.txt\n> Use this file to discover all available pages before exploring further.\n\n# LangGraph overview\n\n> Gain control with LangGraph to design agents that reliably handle complex tasks\n\nTrusted by companies shaping the future of agents-- including Klarna, Replit, Elastic, and more-- LangGraph is a low-level orchestration framework and runtime for building, managing, and deploying long-running, stateful agents.\n\nLangGraph is very low-level, and focused entirely on agent **orchestration**. Before using LangGraph, 
+we recommend you familiarize yourself with some of the components used to build agents, starting with [models](/oss/python/langchain/models) and [tools](/oss/python/langchain/tools).\n\nWe will commonly use [LangChain](/oss/python/langchain/overview) components throughout the documentation to integrate models and tools, but you don't need to use LangChain to use LangGraph. If you are 
+just getting started with agents or want a higher-level abstraction, we recommend you use LangChain's [agents](/oss/python/langchain/agents) that provide pre-built architectures for common LLM and tool-calling loops.\n\nLangGraph is focused on the underlying capabilities important for agent orchestration: durable execution, streaming, human-in-the-loop, and more.\n\n## <Icon icon=\"download\" size={20} /> Install\n\n<CodeGroup>\n  ```bash pip theme={\"theme\":{\"light\":\"catppuccin-latte\",\"dark\":\"catppuccin-mocha\"}}\n  pip install -U langgraph\n  ```\n\n  ```bash uv theme={\"theme\":{\"light\":\"catppuccin-latte\",\"dark\":\"catppuccin-mocha\"}}\n  uv add langgraph\n  ```\n</CodeGroup>\n\nThen, create a simple hello world example:\n\n```python  theme={\"theme\":{\"light\":\"catppuccin-latte\",\"dark\":\"catppuccin-mocha\"}}\nfrom langgraph.graph import StateGraph, MessagesState, START, END\n\ndef mock_llm(state: MessagesState):\n    return {\"messages\": [{\"role\": \"ai\", \"content\": \"hello world\"}]}\n\ngraph = StateGraph(MessagesState)\ngraph.add_node(mock_llm)\ngraph.add_edge(START, \"mock_llm\")\ngraph.add_edge(\"mock_llm\", END)\ngraph = graph.compile()\n\ngraph.invoke({\"messages\": [{\"role\": \"user\", \"content\": \"hi!\"}]})\n```\n\n<Tip>\n  Use [LangSmith](/langsmith/home) to trace requests, debug agent behavior, and evaluate outputs. Set `LANGSMITH_TRACING=true` and your API key to get started.\n</Tip>\n\n## Core benefits\n\nLangGraph provides low-level supporting infrastructure for *any* long-running, stateful workflow or agent. LangGraph does not abstract prompts or architecture, and provides the following central benefits:\n\n* [Durable execution](/oss/python/langgraph/durable-execution): Build agents that persist through failures and can run for extended periods, resuming from where they left off.\n* [Human-in-the-loop](/oss/python/langgraph/interrupts): Incorporate human oversight by inspecting and modifying agent state at any point.\n* [Comprehensive memory](/oss/python/concepts/memory): Create stateful agents with both short-term working memory for ongoing reasoning and long-term memory across sessions.\n* [Debugging with LangSmith](/langsmith/home): Gain deep visibility into complex agent behavior with visualization tools that trace execution paths, capture state transitions, and provide detailed runtime metrics.\n* [Production-ready deployment](/langsmith/deployments): Deploy sophisticated agent systems confidently with scalable infrastructure designed to handle the unique challenges of stateful, long-running workflows.\n\n## LangGraph ecosystem\n\nWhile LangGraph can be used standalone, it also integrates seamlessly with any LangChain product, giving developers a full suite of tools for building agents. To improve your LLM application development, pair LangGraph with:\n\n<Columns cols={1}>\n  <Card title=\"LangSmith Observability\" icon=\"https://mintcdn.com/langchain-5e9cc07a/nQm-sjd_MByLhgeW/images/brand/observability-icon-dark.png?fit=max&auto=format&n=nQm-sjd_MByLhgeW&q=85&s=ccbc183bca2a5e4ca78d30149e3836cc\" href=\"/langsmith/observability\" arrow cta=\"Learn more\" data-og-width=\"200\" width=\"200\" data-og-height=\"200\" height=\"200\" data-path=\"images/brand/observability-icon-dark.png\" data-optimize=\"true\" data-opv=\"3\" srcset=\"https://mintcdn.com/langchain-5e9cc07a/nQm-sjd_MByLhgeW/images/brand/observability-icon-dark.png?w=280&fit=max&auto=format&n=nQm-sjd_MByLhgeW&q=85&s=56bb5d247bd33a2be771f2d0efbce128 280w, https://mintcdn.com/langchain-5e9cc07a/nQm-sjd_MByLhgeW/images/brand/observability-icon-dark.png?w=560&fit=max&auto=format&n=nQm-sjd_MByLhgeW&q=85&s=47522f55ce7c28a7c15d507b46b850b9 560w, https://mintcdn.com/langchain-5e9cc07a/nQm-sjd_MByLhgeW/images/brand/observability-icon-dark.png?w=840&fit=max&auto=format&n=nQm-sjd_MByLhgeW&q=85&s=8b875586d0ad9b545122a2bb2b851641 840w, https://mintcdn.com/langchain-5e9cc07a/nQm-sjd_MByLhgeW/images/brand/observability-icon-dark.png?w=1100&fit=max&auto=format&n=nQm-sjd_MByLhgeW&q=85&s=d543ebdbceba19fe3cb7f3ba105b88ca 1100w, https://mintcdn.com/langchain-5e9cc07a/nQm-sjd_MByLhgeW/images/brand/observability-icon-dark.png?w=1650&fit=max&auto=format&n=nQm-sjd_MByLhgeW&q=85&s=1b2b18bb7e633ba0ccd19032ff4d871d 1650w, https://mintcdn.com/langchain-5e9cc07a/nQm-sjd_MByLhgeW/images/brand/observability-icon-dark.png?w=2500&fit=max&auto=format&n=nQm-sjd_MByLhgeW&q=85&s=3b71434022d7729dfd8465eb70393f7d 2500w\">\n    Trace requests, evaluate outputs, and 
+monitor deployments in one place. Prototype locally with LangGraph, then move to production with integrated observability and evaluation to build more reliable agent systems.\n  </Card>\n\n  <Card title=\"LangSmith Deployment\" icon=\"https://mintcdn.com/langchain-5e9cc07a/nQm-sjd_MByLhgeW/images/brand/deployment-icon-dark.png?fit=max&auto=format&n=nQm-sjd_MByLhgeW&q=85&s=024e3712d388bfa55f4f160cc9d6a85b\" href=\"/langsmith/deployments\" arrow cta=\"Learn more\" data-og-width=\"200\" width=\"200\" data-og-height=\"200\" height=\"200\" data-path=\"images/brand/deployment-icon-dark.png\" data-optimize=\"true\" data-opv=\"3\" srcset=\"https://mintcdn.com/langchain-5e9cc07a/nQm-sjd_MByLhgeW/images/brand/deployment-icon-dark.png?w=280&fit=max&auto=format&n=nQm-sjd_MByLhgeW&q=85&s=d72da313a75de2ed3769e4e6594f91c5 280w, https://mintcdn.com/langchain-5e9cc07a/nQm-sjd_MByLhgeW/images/brand/deployment-icon-dark.png?w=560&fit=max&auto=format&n=nQm-sjd_MByLhgeW&q=85&s=292eb251107135290070a52dcfda5d8b 560w, https://mintcdn.com/langchain-5e9cc07a/nQm-sjd_MByLhgeW/images/brand/deployment-icon-dark.png?w=840&fit=max&auto=format&n=nQm-sjd_MByLhgeW&q=85&s=3a12277efbcf38c85b9790445370ba73 840w, https://mintcdn.com/langchain-5e9cc07a/nQm-sjd_MByLhgeW/images/brand/deployment-icon-dark.png?w=1100&fit=max&auto=format&n=nQm-sjd_MByLhgeW&q=85&s=4764d19688497da1f54c3b028ef54b60 1100w, https://mintcdn.com/langchain-5e9cc07a/nQm-sjd_MByLhgeW/images/brand/deployment-icon-dark.png?w=1650&fit=max&auto=format&n=nQm-sjd_MByLhgeW&q=85&s=f5e717e53cf9541a1ee8b9979e16a7a1 1650w, https://mintcdn.com/langchain-5e9cc07a/nQm-sjd_MByLhgeW/images/brand/deployment-icon-dark.png?w=2500&fit=max&auto=format&n=nQm-sjd_MByLhgeW&q=85&s=df65861d68661c6b7e73b06262840185 2500w\">\n    Deploy and scale agents effortlessly with a purpose-built deployment platform for long running, stateful workflows. Discover, reuse, configure, and share agents across teams — and iterate quickly with visual prototyping in Studio.\n  </Card>\n\n  <Card title=\"LangChain\" icon=\"https://mintcdn.com/langchain-5e9cc07a/nQm-sjd_MByLhgeW/images/brand/langchain-icon.png?fit=max&auto=format&n=nQm-sjd_MByLhgeW&q=85&s=663b30f85baf99ad708b97e05da2a5a4\" href=\"/oss/python/langchain/overview\" arrow cta=\"Learn more\" data-og-width=\"195\" width=\"195\" data-og-height=\"195\" height=\"195\" data-path=\"images/brand/langchain-icon.png\" data-optimize=\"true\" data-opv=\"3\" srcset=\"https://mintcdn.com/langchain-5e9cc07a/nQm-sjd_MByLhgeW/images/brand/langchain-icon.png?w=280&fit=max&auto=format&n=nQm-sjd_MByLhgeW&q=85&s=4263baaca5af7cca9b66e6cf7e7275ec 280w, https://mintcdn.com/langchain-5e9cc07a/nQm-sjd_MByLhgeW/images/brand/langchain-icon.png?w=560&fit=max&auto=format&n=nQm-sjd_MByLhgeW&q=85&s=d63278d5fca457dadbea87e913e302ac 560w, https://mintcdn.com/langchain-5e9cc07a/nQm-sjd_MByLhgeW/images/brand/langchain-icon.png?w=840&fit=max&auto=format&n=nQm-sjd_MByLhgeW&q=85&s=881c154ca65d9f3416b4ba0f1391d7e3 840w, https://mintcdn.com/langchain-5e9cc07a/nQm-sjd_MByLhgeW/images/brand/langchain-icon.png?w=1100&fit=max&auto=format&n=nQm-sjd_MByLhgeW&q=85&s=e120a2386912d276fe0327ef434b6e93 1100w, https://mintcdn.com/langchain-5e9cc07a/nQm-sjd_MByLhgeW/images/brand/langchain-icon.png?w=1650&fit=max&auto=format&n=nQm-sjd_MByLhgeW&q=85&s=e97bdaee5b71ca6a6ca1bcee10648318 1650w, https://mintcdn.com/langchain-5e9cc07a/nQm-sjd_MByLhgeW/images/brand/langchain-icon.png?w=2500&fit=max&auto=format&n=nQm-sjd_MByLhgeW&q=85&s=0f0b77b1d205f42ece4b7b4e30cfd683 2500w\">\n    Provides integrations and composable components to streamline LLM application development. Contains agent abstractions built on top of LangGraph.\n  </Card>\n</Columns>\n\n## Acknowledgements\n\nLangGraph is inspired by [Pregel](https://research.google/pubs/pub37252/) and [Apache Beam](https://beam.apache.org/). The public interface draws inspiration from [NetworkX](https://networkx.org/documentation/latest/). LangGraph is built by LangChain Inc, the creators of LangChain, but can be used without LangChain.\n\n***\n\n<div className=\"source-links\">\n  <Callout icon=\"edit\">\n    [Edit this page on GitHub](https://github.com/langchain-ai/docs/edit/main/src/oss/langgraph/overview.mdx) or [file an issue](https://github.com/langchain-ai/docs/issues/new/choose).\n  </Callout>\n\n  <Callout icon=\"terminal-2\">\n    [Connect these docs](/use-these-docs) to Claude, VSCode, and more via MCP for real-time answers.\n  </Callout>\n</div>\n",
+      "name": "fetch_url",
+      "additional_kwargs": {},
+      "response_metadata": {},
+      "tool_call_id": "call_AybpCE0giRiCCSEdHyThr6CI"
+    },
+    AIMessage {
+      "id": "chatcmpl-DGsYUau05QYW8A3DAyJgVVPNhsT1z",
+      "content": "You probably mean LangGraph (capitalization corrected). In short: LangGraph is a low-level orchestration framework and runtime for building, managing, and deploying long-running, stateful agents and workflows. It focuses on agent orchestration (not prompt abstractions) so you can build reliable, durable, inspectable agent systems.\n\nKey points\n- Purpose: Orchestrate long-running, stateful agents and workflows (durable execution, retries, state persistence).\n- Main capabilities: durable execution (resume after failures), streaming, human-in-the-loop interrupts, comprehensive memory, observability/tracing (with LangSmith), and production-ready deployment.\n- API shapes: Provides both a Graph API (node/edge style orchestration) and a Functional API (callable workflows) so you can choose the abstraction that fits your design.\n- Integrations: Works standalone but integrates with LangChain components and the LangChain ecosystem (Python and JS/TS SDKs available).\n- Typical use cases: complex multi-step agents, long-running automations, RAG/SQL agents, human-in-the-loop workflows, and systems that require debugging/traceability.\n\nQuick install and tiny example (Python)\n- Install: pip install -U langgraph\n- Minimal example (conceptual):\n  from langgraph.graph import StateGraph, MessagesState, START, END\n  def mock_llm(state): return {\"messages\":[{\"role\":\"ai\",\"content\":\"hello world\"}]}\n  graph = StateGraph(MessagesState); graph.add_node(mock_llm); graph.add_edge(START,\"mock_llm\"); graph.add_edge(\"mock_llm\",END)\n  graph = graph.compile(); graph.invoke({\"messages\":[{\"role\":\"user\",\"content\":\"hi!\"}]})\n\nWhere to read more\n- Official docs: https://docs.langchain.com/oss/python/langgraph/overview.md (there are detailed guides, quickstarts, and reference docs for both Python and JS/TS SDKs)\n\nIf you want, I can:\n- Walk through a quickstart tutorial and build a 
+simple agent with you\n- Explain differences between the Graph vs Functional APIs and when to use each\n- Show a more complete code example (Python or JS) for a specific use case you have in mind—what would you like next?",
+      "name": "model",
+      "additional_kwargs": {},
+      "response_metadata": {
+        "tokenUsage": {
+          "promptTokens": 12231,
+          "completionTokens": 851,
+          "totalTokens": 13082
+        },
+        "finish_reason": "stop",
+        "model_provider": "openai",
+        "model_name": "gpt-5-mini-2025-08-07"
+      },
+      "tool_calls": [],
+      "invalid_tool_calls": [],
+      "usage_metadata": {
+        "output_tokens": 851,
+        "input_tokens": 12231,
+        "total_tokens": 13082,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 9088
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 384
+        }
+      }
+    }
+  ],
+  todos: [],
+  files: {
+    '/skills/langgraph-docs/SKILL.md': {
+      content: [Array],
+      created_at: '2026-03-07T20:28:35.520Z',
+      modified_at: '2026-03-07T20:28:35.520Z'
+    },
+    '/large_tool_results/call_tH0D6yOnqRCFwjUFq5ZSA2J6': {
+      content: [Array],
+      created_at: '2026-03-07T20:28:42.176Z',
+      modified_at: '2026-03-07T20:28:42.176Z'
+    }
+  },
+  skillsMetadata: [
+    {
+      name: 'langgraph-docs',
+      description: 'Use this skill for requests related to LangGraph in order to fetch relevant documentation to provide accurate, up-to-date guidance.',
+      path: '/skills/langgraph-docs/SKILL.md',
+      metadata: {},
+      license: null,
+      compatibility: null,
+      allowedTools: []
+    }
+  ]
+}
